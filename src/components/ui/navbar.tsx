@@ -5,15 +5,22 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { ShoppingBag, Home, Info, Phone, Package } from "lucide-react";
+import { Home, Info, Package, Phone, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 
 export function Navbar() {
   return (
     <header className="w-full border-b shadow-sm px-4 py-3">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
-        <Link href="/" className="text-lg font-semibold">
-          So Parfum
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-xl font-semibold tracking-wide text-gray-800"
+        >
+          <img
+            src="/images/selya8.png"
+            alt="Logo Sélya"
+            className="w-12 h-12 object-contains rounded-2xl"
+          />
         </Link>
         <NavigationMenu>
           <NavigationMenuList className="hidden md:flex gap-6">

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Dubai Majalis",
+    "brand": "Ajmal",
+    "description": "Un oud de prestige, intense et boisé, évoquant les soirées de Dubaï.",
+    "price": "510,00€",
+    "image": "/images/dubai-majalis.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Amber Musk",
+    "brand": "Rasasi",
+    "description": "Alliance chaleureuse d'ambre doré et de musc velouté.",
+    "price": "72.50€",
+    "image": "/images/amber-musk.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Musk Al Oud",
+    "brand": "Abdul Samad Al Qurashi",
+    "description": "Un musc raffiné mêlé à la richesse du oud oriental.",
+    "price": "99,00€",
+    "image": "/images/musk-al-oud.jpg"
+  }
+]
