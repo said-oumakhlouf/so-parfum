@@ -1,6 +1,10 @@
 import { SelyaProductCard } from "@/components/ui/selya/SelyaProductCard";
 import parfums from "@/data/parfums.json";
 
+export const metadata = {
+  title: "Produit - Sélya Parfums",
+};
+
 export default function ProduitsPage() {
   return (
     <main className="max-w-7xl mx-auto px-4 py-12">

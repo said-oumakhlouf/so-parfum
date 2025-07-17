@@ -1,15 +1,11 @@
+"use client";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import { Inter } from "next/font/google";
 import { CartProvider } from "@/context/CartContext"; // Import du provider de panier
-import ClientLayout from "@/components/providers/client-layout"; // 👈
+import ClientLayout from "@/components/providers/client-layout";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "Sélya",
-  description: "Parfums de caractère, créés pour vous.",
-};
 
 export default function RootLayout({
   children,
@@ -20,7 +16,10 @@ export default function RootLayout({
     <html lang="fr">
       <body className={inter.className}>
         <Navbar />
-        <ClientLayout>{children}</ClientLayout>
+        <CartProvider>
+          {/* Le provider de panier englobe les enfants pour fournir le contexte */}
+          <ClientLayout>{children}</ClientLayout>
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,26 +1,82 @@
 [
   {
     "id": 1,
-    "name": "Dubai Majalis",
-    "brand": "Ajmal",
-    "description": "Un oud de prestige, intense et boisé, évoquant les soirées de Dubaï.",
-    "price": "510,00€",
-    "image": "/images/dubai-majalis.jpg"
+    "name": "Rose Sublime",
+    "brand": "Sélya",
+    "description": "Un parfum floral luxueux aux pétales de rose de Damas et notes sucrées de vanille.",
+    "price": "85,00€",
+    "image": "/images/rose-sublime.png"
   },
   {
     "id": 2,
-    "name": "Amber Musk",
-    "brand": "Rasasi",
-    "description": "Alliance chaleureuse d'ambre doré et de musc velouté.",
-    "price": "72.50€",
-    "image": "/images/amber-musk.jpg"
+    "name": "Velours d'Or",
+    "brand": "Sélya",
+    "description": "Un sillage élégant et envoûtant, mêlant ambre doré, bois de santal et fleurs blanches.",
+    "price": "92,00€",
+    "image": "/images/velours-dor.png"
   },
   {
     "id": 3,
-    "name": "Musk Al Oud",
-    "brand": "Abdul Samad Al Qurashi",
-    "description": "Un musc raffiné mêlé à la richesse du oud oriental.",
+    "name": "Jardin Oriental",
+    "brand": "Sélya",
+    "description": "Une escapade olfactive dans un jardin luxuriant, aux accents de jasmin et d'agrumes.",
+    "price": "78,00€",
+    "image": "/images/jardin-oriental.png"
+  },
+  {
+    "id": 4,
+    "name": "Éclat d’Azur",
+    "brand": "Sélya",
+    "description": "Fraîcheur marine et fleur d’oranger sur un fond musqué irrésistible.",
+    "price": "80,00€",
+    "image": "/images/eclat-azur.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Noor Intense",
+    "brand": "Sélya",
+    "description": "Puissant et mystérieux, un mélange d’épices orientales et de résines précieuses.",
+    "price": "95,00€",
+    "image": "/images/noor-intense.png"
+  },
+  {
+    "id": 6,
+    "name": "Douce Opale",
+    "brand": "Sélya",
+    "description": "Un parfum délicat aux notes poudrées d’iris, de vanille et de fleur de coton.",
+    "price": "75,00€",
+    "image": "/images/douce-opale.png"
+  },
+  {
+    "id": 7,
+    "name": "Rêve de Soie",
+    "brand": "Sélya",
+    "description": "Un voile soyeux de fleurs blanches et de fruits rouges, tendre et enivrant.",
+    "price": "82,00€",
+    "image": "/images/reve-de-soie.png"
+  },
+  {
+    "id": 8,
+    "name": "Ambre Lune",
+    "brand": "Sélya",
+    "description": "Une lune dorée d’ambre chaud, de patchouli et d’un soupçon de fève tonka.",
+    "price": "88,00€",
+    "image": "/images/ambre-lune.png"
+  },
+  {
+    "id": 9,
+    "name": "Élixir Secret",
+    "brand": "Sélya",
+    "description": "Une alchimie rare de rose noire, d’oud léger et de caramel fondant.",
     "price": "99,00€",
-    "image": "/images/musk-al-oud.jpg"
+    "image": "/images/elixir-secret.png"
+  },
+  {
+    "id": 10,
+    "name": "Lueur d’Aube",
+    "brand": "Sélya",
+    "description": "Une brise fraîche de matinée, aux essences de citron, thé blanc et muguet.",
+    "price": "74,00€",
+    "image": "/images/lueur-daube.jpg"
   }
 ]

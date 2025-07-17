@@ -17,9 +17,9 @@ export function Navbar() {
           className="flex items-center gap-2 text-xl font-semibold tracking-wide text-gray-800"
         >
           <img
-            src="/images/selya8.png"
+            src="/images/selya-logo.png"
             alt="Logo Sélya"
-            className="w-12 h-12 object-contains rounded-2xl"
+            className="w-24 h-24 object-contain hover:scale-105 transition-transform duration-300 bg-black p-1 rounded-full"
           />
         </Link>
         <NavigationMenu>

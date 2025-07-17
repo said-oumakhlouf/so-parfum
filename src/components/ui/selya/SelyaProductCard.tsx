@@ -1,5 +1,7 @@
 "use client";
+import QuantitySelector from "@/components/ui/quantity/QuantitySelector";
 import { useCart } from "@/context/CartContext";
+import { useState } from "react";
 import { Button } from "../button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../card";
 
@@ -9,10 +11,12 @@ interface Parfum {
   description: string;
   price: string;
   image: string;
+  quantity: number;
 }
 
 export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
   const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1);
   return (
     <Card className="bg-muted">
       <img
@@ -27,11 +31,11 @@ export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
         <p className="text-sm text-muted-foreground">{parfum.description}</p>
       </CardContent>
       <CardFooter className="flex items-center justify-between">
-        <p className="text-sm font-medium text-foreground">{parfum.price}</p>
+        <QuantitySelector value={quantity} onChange={setQuantity} />
         <Button
           size="sm"
           className="bg-primary text-primary-foreground"
-          onClick={() => addToCart(parfum)}
+          onClick={() => addToCart({ ...parfum, quantity })}
         >
           Ajouter
         </Button>
