@@ -6,67 +6,49 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Home, Info, Package, Phone, ShoppingBag } from "lucide-react";
-import Link from "next/link";
+import { NavLink } from "./selya/NavLink";
 
 export function Navbar() {
   return (
     <header className="w-full border-b shadow-sm px-4 py-3">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-xl font-semibold tracking-wide text-gray-800"
-        >
+        <NavLink href="/">
           <img
             src="/images/selya-logo.png"
             alt="Logo Sélya"
             className="w-24 h-24 object-contain hover:scale-105 transition-transform duration-300 bg-black p-1 rounded-full"
           />
-        </Link>
+        </NavLink>
         <NavigationMenu>
           <NavigationMenuList className="hidden md:flex gap-6">
             <NavigationMenuItem>
-              <Link
-                href="/"
-                className="flex items-center gap-2 text-sm font-medium"
-              >
+              <NavLink href="/">
                 <Home className="w-4 h-4" />
                 Accueil
-              </Link>
+              </NavLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link
-                href="/produits"
-                className="flex items-center gap-2 text-sm font-medium"
-              >
+              <NavLink href="/produits">
                 <Package className="w-4 h-4" />
                 Produits
-              </Link>
+              </NavLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link
-                href="/contact"
-                className="flex items-center gap-2 text-sm font-medium"
-              >
+              <NavLink href="/contact">
                 <Phone className="w-4 h-4" />
                 Contact
-              </Link>
+              </NavLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link
-                href="/about"
-                className="flex items-center gap-2 text-sm font-medium"
-              >
+              <NavLink href="/about">
                 <Info className="w-4 h-4" />À propos
-              </Link>
+              </NavLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link
-                href="/panier"
-                className="flex items-center gap-2 text-sm font-medium"
-              >
+              <NavLink href="/panier">
                 <ShoppingBag className="w-4 h-4" />
                 Panier
-              </Link>
+              </NavLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

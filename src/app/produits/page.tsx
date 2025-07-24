@@ -1,3 +1,4 @@
+import { CartDrawer } from "@/components/ui/cart/CartDrawer";
 import { SelyaProductCard } from "@/components/ui/selya/SelyaProductCard";
 import parfums from "@/data/parfums.json";
 
@@ -8,6 +9,7 @@ export const metadata = {
 export default function ProduitsPage() {
   return (
     <main className="max-w-7xl mx-auto px-4 py-12">
+      <CartDrawer />
       <h1 className="text-3xl tracking-widest font-semibold text-center mb-10">
         Nos Parfums
       </h1>

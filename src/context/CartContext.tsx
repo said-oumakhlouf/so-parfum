@@ -1,12 +1,12 @@
+"use client";
+import { Parfum } from "@/types";
 import {
   createContext,
-  useContext,
-  useState,
-  useEffect,
   ReactNode,
-  use,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
-import { Parfum } from "@/types";
 // 1. Type d'un produit
 
 type Product = Parfum;

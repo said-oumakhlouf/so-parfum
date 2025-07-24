@@ -1,4 +1,5 @@
 "use client";
+import { toast } from "sonner";
 import QuantitySelector from "@/components/ui/quantity/QuantitySelector";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
@@ -11,7 +12,7 @@ interface Parfum {
   description: string;
   price: string;
   image: string;
-  quantity: number;
+  quantity?: number;
 }
 
 export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
@@ -35,7 +36,10 @@ export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
         <Button
           size="sm"
           className="bg-primary text-primary-foreground"
-          onClick={() => addToCart({ ...parfum, quantity })}
+          onClick={() => {
+            addToCart({ ...parfum, quantity });
+            toast.success("Ajouté au panier !");
+          }}
         >
           Ajouter
         </Button>
