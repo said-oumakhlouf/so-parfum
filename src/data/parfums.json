@@ -5,7 +5,8 @@
     "brand": "Sélya",
     "description": "Un parfum floral luxueux aux pétales de rose de Damas et notes sucrées de vanille.",
     "price": "85,00€",
-    "image": "/images/rose-sublime.png"
+    "image": "/images/rose-sublime.png",
+    "stock": 3
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "brand": "Sélya",
     "description": "Un sillage élégant et envoûtant, mêlant ambre doré, bois de santal et fleurs blanches.",
     "price": "92,00€",
-    "image": "/images/velours-dor.png"
+    "image": "/images/velours-dor.png",
+    "stock": 5
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "brand": "Sélya",
     "description": "Une escapade olfactive dans un jardin luxuriant, aux accents de jasmin et d'agrumes.",
     "price": "78,00€",
-    "image": "/images/jardin-oriental.png"
+    "image": "/images/jardin-oriental.png",
+    "stock": 2
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "brand": "Sélya",
     "description": "Fraîcheur marine et fleur d’oranger sur un fond musqué irrésistible.",
     "price": "80,00€",
-    "image": "/images/eclat-azur.jpg"
+    "image": "/images/eclat-azur.jpg",
+    "stock": 4
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "brand": "Sélya",
     "description": "Puissant et mystérieux, un mélange d’épices orientales et de résines précieuses.",
     "price": "95,00€",
-    "image": "/images/noor-intense.png"
+    "image": "/images/noor-intense.png",
+    "stock": 1
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "brand": "Sélya",
     "description": "Un parfum délicat aux notes poudrées d’iris, de vanille et de fleur de coton.",
     "price": "75,00€",
-    "image": "/images/douce-opale.png"
+    "image": "/images/douce-opale.png",
+    "stock": 6
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "brand": "Sélya",
     "description": "Un voile soyeux de fleurs blanches et de fruits rouges, tendre et enivrant.",
     "price": "82,00€",
-    "image": "/images/reve-de-soie.png"
+    "image": "/images/reve-de-soie.png",
+    "stock": 4
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "brand": "Sélya",
     "description": "Une lune dorée d’ambre chaud, de patchouli et d’un soupçon de fève tonka.",
     "price": "88,00€",
-    "image": "/images/ambre-lune.png"
+    "image": "/images/ambre-lune.png",
+    "stock": 3
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "brand": "Sélya",
     "description": "Une alchimie rare de rose noire, d’oud léger et de caramel fondant.",
     "price": "99,00€",
-    "image": "/images/elixir-secret.png"
+    "image": "/images/elixir-secret.png",
+    "stock": 2
   },
   {
     "id": 10,
@@ -77,6 +86,7 @@
     "brand": "Sélya",
     "description": "Une brise fraîche de matinée, aux essences de citron, thé blanc et muguet.",
     "price": "74,00€",
-    "image": "/images/lueur-daube.jpg"
+    "image": "/images/lueur-daube.jpg",
+    "stock": 5
   }
 ]

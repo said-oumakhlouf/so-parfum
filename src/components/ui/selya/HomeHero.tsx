@@ -12,7 +12,7 @@ export function HomeHero() {
       <div className="relative z-10 flex items-center justify-center h-full">
         <div className="text-white text-center space-y-6 px-4">
           <h1 className="text-5xl font-serif tracking-wider ">Sélya</h1>
-          <p className="text-lg italic">L’essence de votre élégance</p>{" "}
+          <p className="text-lg">L’essence de votre élégance</p>{" "}
           <a
             href="/produits"
             className="inline-block border border-white px-6 py-3 text-sm tracking-wider uppercase hover:bg-white hover:text-black transition rounded-2xl"

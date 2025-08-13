@@ -1,18 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { ReactNode } from "react";
+import React from "react";
 
-type NavLinkProps = {
+export interface NavLinkProps {
   href: string;
-  children: ReactNode;
-};
+  children: React.ReactNode;
+  onClick?: () => void; // ✅ On ajoute cette ligne
+}
 
-export function NavLink({ href, children }: NavLinkProps) {
+export function NavLink({ href, children, onClick }: NavLinkProps) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors duration-200"
+      onClick={onClick} // ✅ On passe l'événement
+      className="flex items-center gap-2 hover:text-pink-500 transition-colors"
     >
       {children}
     </Link>

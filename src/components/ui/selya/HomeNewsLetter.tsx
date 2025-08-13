@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "../input";
 
 export function HomeNewsletter() {
   return (
@@ -14,7 +15,7 @@ export function HomeNewsletter() {
           privilèges.
         </p>
         <form className="flex flex-col sm:flex-row items-center gap-4 justify-center">
-          <input
+          <Input
             type="email"
             placeholder="Votre adresse e-mail"
             className="w-full max-w-sm rounded-full px-4 py-2"

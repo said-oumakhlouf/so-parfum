@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { toast } from "sonner";
 // 1. Type d'un produit
 
 type Product = Parfum;
@@ -37,21 +38,37 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [cartItems]);
 
   const addToCart = (product: Product) => {
+    let productAdded = false;
+
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
+      const quantityInCart = existing?.quantity || 0;
+      const totalQuantity = quantityInCart + (product.quantity || 1);
+
+      if (totalQuantity > product.stock) {
+        toast.error("Stock insuffisant pour ce produit.");
+        return prev;
+      }
+
+      productAdded = true;
+
       if (existing) {
         return prev.map((item) =>
           item.id === product.id
             ? {
                 ...item,
-                quantity: (item.quantity ?? 1) + (product.quantity ?? 1),
+                quantity: totalQuantity,
               }
             : item
         );
       } else {
-        return [...prev, product];
+        return [...prev, { ...product, quantity: product.quantity || 1 }];
       }
     });
+
+    if (productAdded) {
+      toast.success("Ajouté au panier !");
+    }
   };
 
   const removeFromCart = (productId: number) => {

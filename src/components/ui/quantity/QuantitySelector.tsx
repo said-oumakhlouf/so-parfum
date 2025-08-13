@@ -1,33 +1,39 @@
 "use client";
 
-import { ChangeEvent } from "react";
+import { Button } from "../button";
 
 interface QuantitySelectorProps {
   value: number;
   onChange: (value: number) => void;
   max?: number;
+  disabled?: boolean;
 }
 
 export default function QuantitySelector({
   value,
   onChange,
   max = 10,
+  disabled = false,
 }: QuantitySelectorProps) {
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange(Number(e.target.value));
-  };
-
   return (
-    <select
-      value={value}
-      onChange={handleChange}
-      className="border px-2 py-1 rounded text-sm"
-    >
-      {[...Array(max)].map((_, i) => (
-        <option key={i + 1} value={i + 1}>
-          {i + 1}
-        </option>
-      ))}
-    </select>
+    <div className="flex items-center gap-2">
+      <Button
+        size="sm"
+        variant="outline"
+        onClick={() => onChange(Math.max(1, value - 1))}
+        disabled={disabled || value <= 1}
+      >
+        -
+      </Button>
+      <span className="text-sm">{value}</span>
+      <Button
+        size="sm"
+        variant="outline"
+        onClick={() => onChange(value + 1)}
+        disabled={disabled || value >= max}
+      >
+        +
+      </Button>
+    </div>
   );
 }
