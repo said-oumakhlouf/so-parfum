@@ -1,4 +1,3 @@
-import ClientLayout from "@/components/providers/client-layout";
 import { Navbar } from "@/components/ui/navbar";
 import { CartProvider } from "@/context/CartContext"; // Import du provider de panier
 import { Cormorant, Montserrat } from "next/font/google";
@@ -37,10 +36,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${cormorant.variable} ${montserrat.variable}`}>
+        {/* Un seul provider de panier, partagé par la navbar et les pages */}
         <CartProvider>
           <Navbar />
-          {/* Le provider de panier englobe les enfants pour fournir le contexte */}
-          <ClientLayout>{children}</ClientLayout>
+          {children}
           <Toaster />
         </CartProvider>
       </body>

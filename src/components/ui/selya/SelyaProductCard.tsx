@@ -4,8 +4,7 @@ import { useCart } from "@/context/CartContext";
 import { formatPrice, parsePrice } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { useState } from "react";
 import { SelyaButton } from "./SelyaButton";
 
 interface Parfum {
@@ -19,32 +18,14 @@ interface Parfum {
 }
 
 export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
-  const { addToCart } = useCart();
-  const [quantity, setQuantity] = useState(1);
+  const { cartItems, addToCart } = useCart();
+  const [selectedQuantity, setQuantity] = useState(1);
 
-  const [quantityAlreadyInCart, setQuantityAlreadyInCart] = useState(0);
-  const [quantityRemaining, setQuantityRemaining] = useState(parfum.stock);
-
-  useEffect(() => {
-    const updateStockInfo = () => {
-      const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
-      const existingItem = cartItems.find(
-        (item: Parfum) => item.id === parfum.id
-      );
-      const inCart = existingItem?.quantity || 0;
-
-      setQuantityAlreadyInCart(inCart);
-      setQuantityRemaining(parfum.stock - inCart);
-    };
-
-    updateStockInfo();
-
-    window.addEventListener("storage", updateStockInfo);
-
-    return () => {
-      window.removeEventListener("storage", updateStockInfo);
-    };
-  }, [parfum.id, parfum.stock]);
+  // Stock restant calculé en direct à partir du panier partagé
+  const quantityAlreadyInCart =
+    cartItems.find((item) => item.id === parfum.id)?.quantity ?? 0;
+  const quantityRemaining = Math.max(0, parfum.stock - quantityAlreadyInCart);
+  const quantity = Math.min(selectedQuantity, Math.max(quantityRemaining, 1));
 
   const soldOut = quantityRemaining <= 0;
 
@@ -110,22 +91,11 @@ export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
           <SelyaButton
             className="w-full"
             onClick={() => {
-              const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-              const existing = cart.find(
-                (item: Parfum) => item.id === parfum.id
-              );
-              const quantityInCart = existing?.quantity || 0;
-              const remaining = parfum.stock - quantityInCart;
-
-              if (quantity > remaining) {
-                toast.error("Stock insuffisant pour cette quantité.");
-                return;
-              }
-
+              // addToCart vérifie lui-même le stock et affiche l'erreur si besoin
               addToCart({ ...parfum, quantity });
               setQuantity(1);
             }}
-            disabled={soldOut || quantity > quantityRemaining}
+            disabled={soldOut}
           >
             {soldOut ? "Indisponible" : "Ajouter au panier"}
           </SelyaButton>
