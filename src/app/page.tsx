@@ -20,8 +20,8 @@ export default function Home() {
       {/* Autres sections */}
       <HomeValues />
       {/* Newsletter et réseaux sociaux */}
-      <div className="bg-[#f9f6f2] py-16">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-start">
+      <div className="bg-secondary py-20 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-start gap-14 px-6 md:grid-cols-2 md:gap-16">
           <HomeNewsletter />
           <HomeSocials />
         </div>

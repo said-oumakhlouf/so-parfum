@@ -13,7 +13,7 @@ export function SelyaButton({
   return (
     <Button
       className={cn(
-        "bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground px-6 py-3 text-base font-medium rounded-full transition",
+        "min-h-11 rounded-none bg-primary px-8 py-3 text-xs font-medium tracking-[0.2em] uppercase text-primary-foreground transition-colors duration-200 hover:bg-gold hover:text-gold-foreground",
         className
       )}
       {...props}
