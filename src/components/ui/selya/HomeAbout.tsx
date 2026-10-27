@@ -1,20 +1,29 @@
-"use client";
+import Image from "next/image";
 
 export function HomeAbout() {
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center px-6">
-        <img
-          src="/images/elixir-secret.png"
-          alt="Notre univers"
-          className="rounded-lg shadow-md"
-        />
+    <section className="bg-background py-20 md:py-28">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2 md:gap-20">
+        <div className="relative aspect-square overflow-hidden bg-secondary">
+          <Image
+            src="/images/elixir-secret.png"
+            alt="Flacon du parfum Élixir Secret"
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
         <div>
-          <h2 className="text-3xl font-serif font-bold mb-4">Notre univers</h2>
-          <p className="text-muted-foreground">
-            Chez Sélya, chaque parfum est une invitation à l’élégance, à la
-            douceur et à l’émotion. Nos créations sont pensées pour sublimer la
-            féminité sous toutes ses formes.
+          <p className="mb-4 text-xs font-medium tracking-[0.35em] uppercase text-gold">
+            Notre histoire
+          </p>
+          <h2 className="mb-6 font-serif text-4xl font-light md:text-5xl">
+            Notre univers
+          </h2>
+          <p className="leading-relaxed text-muted-foreground">
+            Chez Sélya, chaque parfum est une invitation à l&apos;élégance, à
+            la douceur et à l&apos;émotion. Nos créations sont pensées pour
+            sublimer la féminité sous toutes ses formes.
           </p>
         </div>
       </div>

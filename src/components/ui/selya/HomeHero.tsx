@@ -1,25 +1,37 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
 
 export function HomeHero() {
   return (
-    <section className="relative h-screen">
-      <img
-        src="./images/hero.jpg"
-        alt="Parfum"
-        className="absolute inset-0 w-full h-full object-cover"
+    <section className="relative flex min-h-[560px] h-[calc(100svh-3.5rem)] max-h-[900px] items-center justify-center overflow-hidden md:h-[calc(100svh-5rem)]">
+      <Image
+        src="/images/hero.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
       />
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <div className="text-white text-center space-y-6 px-4">
-          <h1 className="text-5xl font-serif tracking-wider ">Sélya</h1>
-          <p className="text-lg">L’essence de votre élégance</p>{" "}
-          <a
-            href="/produits"
-            className="inline-block border border-white px-6 py-3 text-sm tracking-wider uppercase hover:bg-white hover:text-black transition rounded-2xl"
-          >
-            Découvrir
-          </a>
-        </div>
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center text-white">
+        <p className="mb-6 text-xs font-medium tracking-[0.25em] uppercase text-white/85 sm:tracking-[0.4em]">
+          Parfumerie d&apos;exception
+        </p>
+        <h1 className="font-serif text-6xl font-light tracking-[0.2em] uppercase md:text-8xl">
+          Sélya
+        </h1>
+        <p className="mx-auto mt-6 max-w-md text-lg font-light text-white/90 md:text-xl">
+          L&apos;essence de votre élégance
+        </p>
+        <Link
+          href="/produits"
+          className="mt-10 inline-flex min-h-12 max-w-full items-center justify-center bg-white px-6 py-3 text-center text-xs leading-snug font-medium tracking-[0.2em] uppercase text-primary sm:px-10 sm:tracking-[0.25em] transition-colors duration-200 hover:bg-gold hover:text-gold-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          Découvrir la collection
+        </Link>
       </div>
     </section>
   );

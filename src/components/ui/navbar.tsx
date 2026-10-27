@@ -1,110 +1,128 @@
 "use client";
 
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Home, Info, Menu, Package, Phone, ShoppingBag } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { Menu, ShoppingBag } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "./button";
 import { NavLink } from "./selya/NavLink";
+
+const links = [
+  { href: "/", label: "Accueil" },
+  { href: "/produits", label: "Nos parfums" },
+];
+
+function CartLink({ onClick }: { onClick?: () => void }) {
+  const { cartItems } = useCart();
+  const count = cartItems.reduce((sum, item) => sum + (item.quantity ?? 0), 0);
+
+  return (
+    <NavLink
+      href="/panier"
+      onClick={onClick}
+      aria-label={
+        count > 0 ? `Panier, ${count} article${count > 1 ? "s" : ""}` : "Panier"
+      }
+      className="relative min-h-10 min-w-10 justify-center md:min-h-11 md:min-w-11"
+    >
+      <ShoppingBag className="size-[18px] md:size-5" aria-hidden="true" />
+      {count > 0 && (
+        <span className="absolute top-0.5 right-0 flex size-4 items-center justify-center rounded-full bg-gold text-[10px] leading-none font-semibold text-gold-foreground">
+          {count}
+        </span>
+      )}
+    </NavLink>
+  );
+}
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full border-b shadow-sm px-4 py-3">
-      <div className="max-w-6xl mx-auto">
-        {/* Version mobile */}
-        <div className="flex items-center justify-between md:hidden">
-          <div className="flex-1"></div> {/* espace vide pour centrer */}
-          <NavLink href="/">
-            <img
-              src="/images/selya-logo.png"
-              alt="Logo Sélya"
-              className="w-24 h-24 object-contain hover:scale-105 transition-transform duration-300 bg-black p-1 rounded-full"
-            />
-          </NavLink>
-          <div className="flex-1 flex justify-end">
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:h-20 md:px-6">
+        {/* Logo + nom */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+        >
+          <Image
+            src="/images/selya-logo.png"
+            alt=""
+            width={44}
+            height={44}
+            className="size-8 rounded-full bg-black object-contain p-0.5 md:size-11"
+          />
+          <span className="font-serif text-xl font-medium tracking-[0.2em] uppercase md:text-2xl md:tracking-[0.25em]">
+            Sélya
+          </span>
+        </Link>
+
+        {/* Navigation desktop */}
+        <nav aria-label="Navigation principale" className="hidden md:block">
+          <ul className="flex items-center gap-10">
+            {links.map((link) => (
+              <li key={link.href}>
+                <NavLink href={link.href}>{link.label}</NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-1">
+          <CartLink />
+
+          {/* Menu mobile */}
+          <div className="md:hidden">
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Menu">
-                  <Menu className="w-6 h-6" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Ouvrir le menu"
+                  className="size-10"
+                >
+                  <Menu className="size-5" aria-hidden="true" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-64">
-                <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
+              <SheetContent side="top" className="gap-0 pb-2">
+                <SheetHeader className="h-14 justify-center px-4 py-0">
+                  <SheetTitle className="font-serif text-xl tracking-[0.2em] uppercase">
+                    Sélya
+                  </SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigation du site
+                  </SheetDescription>
                 </SheetHeader>
-                <nav className="mt-4 space-y-4">
-                  <NavLink href="/" onClick={() => setOpen(false)}>
-                    Accueil
-                  </NavLink>
-                  <NavLink href="/produits" onClick={() => setOpen(false)}>
-                    Produits
-                  </NavLink>
-                  <NavLink href="/contact" onClick={() => setOpen(false)}>
-                    Contact
-                  </NavLink>
-                  <NavLink href="/about" onClick={() => setOpen(false)}>
-                    À propos
-                  </NavLink>
-                  <NavLink href="/panier" onClick={() => setOpen(false)}>
-                    Panier
-                  </NavLink>
+                <nav aria-label="Menu mobile" className="px-4">
+                  <ul className="divide-y divide-border border-t border-border">
+                    {[...links, { href: "/panier", label: "Panier" }].map(
+                      (link) => (
+                        <li key={link.href}>
+                          <NavLink
+                            href={link.href}
+                            onClick={() => setOpen(false)}
+                            className="min-h-11 py-2 text-sm"
+                          >
+                            {link.label}
+                          </NavLink>
+                        </li>
+                      )
+                    )}
+                  </ul>
                 </nav>
               </SheetContent>
             </Sheet>
           </div>
-        </div>
-
-        {/* Version desktop */}
-        <div className="hidden md:flex items-center justify-between">
-          <NavLink href="/">
-            <img
-              src="/images/selya-logo.png"
-              alt="Logo Sélya"
-              className="md:w-28 md:h-28 object-contain hover:scale-105 transition-transform duration-300 bg-black p-1 rounded-full"
-            />
-          </NavLink>
-          <NavigationMenu>
-            <NavigationMenuList className="flex gap-6">
-              <NavigationMenuItem>
-                <NavLink href="/">
-                  <Home className="w-5 h-5 mr-1" />
-                  Accueil
-                </NavLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavLink href="/produits">
-                  <Package className="w-5 h-5 mr-1" />
-                  Produits
-                </NavLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavLink href="/contact">
-                  <Phone className="w-5 h-5 mr-1" />
-                  Contact
-                </NavLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavLink href="/about">
-                  <Info className="w-5 h-5 mr-1" />À propos
-                </NavLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-          <NavLink href="/panier">
-            <ShoppingBag className="w-5 h-5" />
-          </NavLink>
         </div>
       </div>
     </header>
