@@ -3,6 +3,7 @@
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -93,14 +94,17 @@ export function Navbar() {
                   <Menu className="size-5" aria-hidden="true" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-64 gap-2">
-                <SheetHeader className="pb-0">
+              <SheetContent side="top" className="gap-0 pb-2">
+                <SheetHeader className="h-14 justify-center px-4 py-0">
                   <SheetTitle className="font-serif text-xl tracking-[0.2em] uppercase">
                     Sélya
                   </SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigation du site
+                  </SheetDescription>
                 </SheetHeader>
-                <nav aria-label="Menu mobile" className="mt-2 px-4">
-                  <ul className="divide-y divide-border">
+                <nav aria-label="Menu mobile" className="px-4">
+                  <ul className="divide-y divide-border border-t border-border">
                     {[...links, { href: "/panier", label: "Panier" }].map(
                       (link) => (
                         <li key={link.href}>
