@@ -17,7 +17,7 @@ export function HomeHero() {
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center text-white">
-        <p className="mb-6 text-xs font-medium tracking-[0.4em] uppercase text-white/85">
+        <p className="mb-6 text-xs font-medium tracking-[0.25em] uppercase text-white/85 sm:tracking-[0.4em]">
           Parfumerie d&apos;exception
         </p>
         <h1 className="font-serif text-6xl font-light tracking-[0.2em] uppercase md:text-8xl">
@@ -28,7 +28,7 @@ export function HomeHero() {
         </p>
         <Link
           href="/produits"
-          className="mt-10 inline-flex min-h-12 items-center justify-center bg-white px-10 py-3 text-xs font-medium tracking-[0.25em] uppercase text-primary transition-colors duration-200 hover:bg-gold hover:text-gold-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          className="mt-10 inline-flex min-h-12 max-w-full items-center justify-center bg-white px-6 py-3 text-center text-xs leading-snug font-medium tracking-[0.2em] uppercase text-primary sm:px-10 sm:tracking-[0.25em] transition-colors duration-200 hover:bg-gold hover:text-gold-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
           Découvrir la collection
         </Link>
