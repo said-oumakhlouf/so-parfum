@@ -3,6 +3,7 @@ import QuantitySelector from "@/components/ui/quantity/QuantitySelector";
 import { useCart } from "@/context/CartContext";
 import { formatPrice, parsePrice } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { SelyaButton } from "./SelyaButton";
@@ -59,6 +60,13 @@ export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
             soldOut ? "opacity-60 grayscale" : ""
           }`}
         />
+        {/* Zone cliquable sur l'image : le lien du titre reste l'accès clavier */}
+        <Link
+          href={`/produits/${parfum.id}`}
+          tabIndex={-1}
+          aria-hidden="true"
+          className="absolute inset-0"
+        />
         {soldOut && (
           <span className="absolute top-3 left-3 bg-primary px-3 py-1 text-[11px] font-medium tracking-[0.15em] uppercase text-primary-foreground">
             Épuisé
@@ -75,7 +83,12 @@ export function SelyaProductCard({ parfum }: { parfum: Parfum }) {
         <div className="space-y-2">
           <div className="flex items-baseline justify-between gap-4">
             <h3 className="font-serif text-2xl leading-tight font-medium">
-              {parfum.name}
+              <Link
+                href={`/produits/${parfum.id}`}
+                className="transition-colors duration-200 hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
+              >
+                {parfum.name}
+              </Link>
             </h3>
             <p className="shrink-0 text-base font-medium text-gold">
               {formatPrice(parsePrice(parfum.price))}
