@@ -20,6 +20,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
+  // Définir NEXT_PUBLIC_SITE_URL en production (ex. https://mon-domaine.fr)
+  // pour que les images de partage (Open Graph) aient une adresse complète.
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
   title: "Sélya Parfum",
   description: "Découvrez des parfums d'exception",
 };
