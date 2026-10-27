@@ -1,5 +1,6 @@
 "use client";
 
+import QuantitySelector from "@/components/ui/quantity/QuantitySelector";
 import { SelyaButton } from "@/components/ui/selya/SelyaButton";
 import { useCart } from "@/context/CartContext";
 import { formatPrice, parsePrice } from "@/lib/utils";
@@ -8,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function PanierClient() {
-  const { cartItems, removeFromCart } = useCart();
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
 
   const subtotal = cartItems.reduce(
     (total, item) =>
@@ -53,14 +54,33 @@ export default function PanierClient() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <h2 className="truncate font-serif text-lg leading-tight font-medium md:text-2xl">
-                      {item.name}
+                      <Link
+                        href={`/produits/${item.id}`}
+                        className="transition-colors duration-200 hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                      >
+                        {item.name}
+                      </Link>
                     </h2>
                     <p className="mt-0.5 text-xs text-muted-foreground md:text-sm">
-                      {formatPrice(unitPrice)} × {quantity}
+                      {formatPrice(unitPrice)} l&apos;unité
                     </p>
-                    <p className="mt-1 text-sm font-medium text-gold md:text-base">
-                      {formatPrice(unitPrice * quantity)}
-                    </p>
+                    <div className="mt-2 flex flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                      <QuantitySelector
+                        compact
+                        value={quantity}
+                        onChange={(value) => updateQuantity(item.id, value)}
+                        max={item.stock}
+                        label={item.name}
+                      />
+                      <p className="text-sm font-medium text-gold md:text-base">
+                        {formatPrice(unitPrice * quantity)}
+                      </p>
+                    </div>
+                    {quantity >= item.stock && (
+                      <p className="mt-1.5 text-xs text-muted-foreground">
+                        Quantité maximale disponible
+                      </p>
+                    )}
                   </div>
                   <button
                     type="button"
