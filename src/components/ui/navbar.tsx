@@ -31,11 +31,11 @@ function CartLink({ onClick }: { onClick?: () => void }) {
       aria-label={
         count > 0 ? `Panier, ${count} article${count > 1 ? "s" : ""}` : "Panier"
       }
-      className="relative min-w-11 justify-center"
+      className="relative min-h-10 min-w-10 justify-center md:min-h-11 md:min-w-11"
     >
-      <ShoppingBag className="size-5" aria-hidden="true" />
+      <ShoppingBag className="size-[18px] md:size-5" aria-hidden="true" />
       {count > 0 && (
-        <span className="absolute top-1 right-0 flex size-4 items-center justify-center rounded-full bg-gold text-[10px] font-semibold text-gold-foreground">
+        <span className="absolute top-0.5 right-0 flex size-4 items-center justify-center rounded-full bg-gold text-[10px] leading-none font-semibold text-gold-foreground">
           {count}
         </span>
       )}
@@ -48,7 +48,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:h-20 md:px-6">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:h-20 md:px-6">
         {/* Logo + nom */}
         <Link
           href="/"
@@ -59,9 +59,9 @@ export function Navbar() {
             alt=""
             width={44}
             height={44}
-            className="size-10 rounded-full bg-black object-contain p-0.5 md:size-11"
+            className="size-8 rounded-full bg-black object-contain p-0.5 md:size-11"
           />
-          <span className="font-serif text-2xl font-medium tracking-[0.25em] uppercase">
+          <span className="font-serif text-xl font-medium tracking-[0.2em] uppercase md:text-2xl md:tracking-[0.25em]">
             Sélya
           </span>
         </Link>
@@ -88,14 +88,14 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   aria-label="Ouvrir le menu"
-                  className="size-11"
+                  className="size-10"
                 >
-                  <Menu className="size-6" aria-hidden="true" />
+                  <Menu className="size-5" aria-hidden="true" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-72">
-                <SheetHeader>
-                  <SheetTitle className="font-serif text-2xl tracking-[0.2em] uppercase">
+              <SheetContent side="right" className="w-64 gap-2">
+                <SheetHeader className="pb-0">
+                  <SheetTitle className="font-serif text-xl tracking-[0.2em] uppercase">
                     Sélya
                   </SheetTitle>
                 </SheetHeader>
@@ -107,7 +107,7 @@ export function Navbar() {
                           <NavLink
                             href={link.href}
                             onClick={() => setOpen(false)}
-                            className="py-3 text-base"
+                            className="min-h-11 py-2 text-sm"
                           >
                             {link.label}
                           </NavLink>

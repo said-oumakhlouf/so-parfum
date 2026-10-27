@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function HomeHero() {
   return (
-    <section className="relative flex min-h-[560px] h-[calc(100svh-4rem)] max-h-[900px] items-center justify-center overflow-hidden md:h-[calc(100svh-5rem)]">
+    <section className="relative flex min-h-[560px] h-[calc(100svh-3.5rem)] max-h-[900px] items-center justify-center overflow-hidden md:h-[calc(100svh-5rem)]">
       <Image
         src="/images/hero.jpg"
         alt=""
